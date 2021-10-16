@@ -5,3 +5,4 @@ influxdb/data/*
 !grafana/dashboard-storage/.keep
 !influxdb/data/.keep
 
+.DS_Store
