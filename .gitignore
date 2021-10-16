@@ -1,8 +1,7 @@
 grafana/dashboard-storage/*
 influxdb/data/*
+.DS_Store
 
 # exception to the rule
 !grafana/dashboard-storage/.keep
 !influxdb/data/.keep
-
-.DS_Store
