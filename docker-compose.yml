@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+        - "3000:3000"
+    environment:
+        GF_SECURITY_ADMIN_PASSWORD: admin
+        GF_PATHS_PROVISIONING: '/app.cfg/provisioning/'
+        GF_EXTERNAL_IMAGE_STORAGE: 'local'
+    volumes:
+        - ./grafana:/app.cfg
+        - ./grafana/dashboards:/app.cfg/dashboards
+        - ./grafana/dashboard-storage:/var/lib/grafana
+    
+  telegraf:
+    image: telegraf:1.8
+    container_name: telegraf
+    links:
+      - influxdb
+    volumes:
+      - ./telegraf/config/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+ 
+  influxdb:
+    image: influxdb:1.8.6
+    ports:
+        - '8086:8086'
+    volumes:
+        - ./influxdb/data:/var/lib/influxdb
+        - ./influxdb/config/influxdb.conf:/etc/influxdb/influxdb.conf:ro
+    environment:
+        - INFLUXDB_DB=db0
+        - INFLUXDB_ADMIN_USER=admin
+        - INFLUXDB_ADMIN_PASSWORD=test
+ 

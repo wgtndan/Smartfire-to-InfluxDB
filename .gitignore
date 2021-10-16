@@ -1,0 +1,7 @@
+grafana/dashboard-storage/*
+influxdb/data/*
+
+# exception to the rule
+!grafana/dashboard-storage/.keep
+!influxdb/data/.keep
+
