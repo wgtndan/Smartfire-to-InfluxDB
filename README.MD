@@ -1,4 +1,5 @@
 # Smartfire-to-InfluxDB
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 An example configuration that provides a Docker-Compose environment that can scrape metrics from the Smartfire's JSON endpoint, and pushes them to InfluxDB using Telegraf and the HTTP Input Plugin, this can then visualised in a Grafana dashboard as per the sample provided.
 
